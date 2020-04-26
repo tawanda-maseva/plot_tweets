@@ -47,7 +47,7 @@ class Tweets_by(User):
 		'''Plot default 20 tweets by likes or retweets with default colour green'''
 		self.visualize_by(category)
 		self.bchart.title = 'Tweets from @' + self.user_id + ' by ' + category.title()
-		svg_filename = self.user_id + '_tweets_' + category + '.svg'
+		svg_filename = 'output_files/' + self.user_id + '_tweets_' + category + '.svg'
 		self.bchart.render_to_file(svg_filename)
 
 class Hashtag(User):
