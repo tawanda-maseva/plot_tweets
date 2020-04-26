@@ -1,8 +1,24 @@
 import pygal
-from pygal.style import Style, DarkStyle
+from pygal.style import Style #, DarkStyle
 import json
 
 import tweepy as tw
+
+def welcome_msg():
+	'''Pring welcome message and lead user'''
+	print('\nHi there!\n\nWhat would you like to do? (1,2, or 3?)')
+	print('1. See tweets from your timeline')
+	print('2. See tweets by someone')
+	print('3. Search tweets by a hashtag')
+	print('Press q to quit\n')
+
+def verify_user_input():
+	'''Check user input'''
+	user_input = input().lower()
+	expected_response = ['1','2','3','q']
+	while user_input not in expected_response:
+		user_input = input('Please choose 1,2,3 or q to quit. \n').lower()
+	return user_input
 
 def api_login(credentials_file):
 	'''Retrieve user credentials saved on json file and login'''
@@ -25,7 +41,7 @@ def api_login(credentials_file):
 def bar_config():
 	'''Display settings of bar graph'''
 	chart_config = pygal.Config()
-	chart_config.style = DarkStyle
+#	chart_config.style = DarkStyle
 	chart_config.x_label_rotation = 45
 	chart_config.truncate_label = 17
 	chart_config.width = 1000
@@ -46,13 +62,3 @@ def bar_style():
 	return custom_style
 
 	
-
-
-def visualize(xtitle, xvalues, ytitle, yvalues, colour):
-	'''Plot a bar graph'''
-	config = bar_config()
-	bchart = pygal.Bar(config, x_title = xtitle, style = DarkStyle)
-
-	bchart.x_labels = xvalues
-	bchart.add(ytitle, yvalues)
-	return bchart
