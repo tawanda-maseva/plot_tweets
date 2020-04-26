@@ -1,4 +1,4 @@
-from tw_visualizations import Timeline, Tweets_by, Harshtag
+from tw_visualizations import Timeline, Tweets_by, Hashtag
 
 
 tawanda_credentials = '/Users/user/Desktop/python_work/CHAPTER_02/04_working_with_APIs/twitter_project/twitter_credentials.json'
@@ -6,7 +6,7 @@ timmy = Timeline('timmy', tawanda_credentials)
 #elonmusk = Tweets_by('elonmusk', tawanda_credentials)
 # trump = Tweets_by('realDonaldTrump', tawanda_credentials)
 
-got = Harshtag('#ForTheThrone', tawanda_credentials)
+got = Hashtag('#ForTheThrone', tawanda_credentials)
 
 def main():
 	'''View tweets by likes or retweets'''
