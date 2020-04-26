@@ -8,7 +8,7 @@ class Timeline(User):
 		'''Inherit data from parent class - User'''
 		super().__init__(credentials_file)
 		self.username = username
-		self.history_file = self.username + '_timeline' + '.json'
+		self.history_file = 'output_files/' + self.username + '_timeline' + '.json'
 
 		self.refresh_tweets() # get latest tweets
 
@@ -16,7 +16,7 @@ class Timeline(User):
 		'''Plot default 20 tweets by likes or retweets with default colour green'''	
 		self.visualize_by(category)
 		self.bchart.title = 'Tweets from ' + self.username + '\'s Timeline by ' + category.title()
-		svg_filename = self.username + '_timeline_' + category + '.svg'
+		svg_filename = 'output_files/' + self.username + '_timeline_' + category + '.svg'
 		self.bchart.render_to_file(svg_filename)
 
 	def refresh_tweets(self):
@@ -32,7 +32,7 @@ class Tweets_by(User):
 		'''Inherit data from parent class - User'''
 		super().__init__(credentials_file)
 		self.user_id = user_id
-		self.history_file = self.user_id + '_tweets' + '.json'
+		self.history_file = 'output_files/' + self.user_id + '_tweets' + '.json'
 
 		self.refresh_tweets() # get latest tweets
 
@@ -50,12 +50,12 @@ class Tweets_by(User):
 		svg_filename = self.user_id + '_tweets_' + category + '.svg'
 		self.bchart.render_to_file(svg_filename)
 
-class Harshtag(User):
+class Hashtag(User):
 	'''Visualize Corona tweets'''
 	def __init__(self, hashtag, credentials_file):
 		super().__init__(credentials_file)
 		self.hashtag = hashtag
-		self.history_file = self.hashtag + '_tweets' + '.json'
+		self.history_file = 'output_files/' + self.hashtag + '_tweets' + '.json'
 
 		self.refresh_tweets()
 
@@ -63,7 +63,7 @@ class Harshtag(User):
 		'''Plot default 20 tweets by likes or retweets with default colour green'''
 		self.visualize_by(category)
 		self.bchart.title = self.hashtag + ' Tweets by ' + category.title()
-		svg_filename = self.hashtag + '_tweets_' + category + '.svg'
+		svg_filename = 'output_files/' + self.hashtag + '_tweets_' + category + '.svg'
 		self.bchart.render_to_file(svg_filename)
 
 	def refresh_tweets(self):
