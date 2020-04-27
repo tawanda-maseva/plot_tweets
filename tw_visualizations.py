@@ -25,7 +25,6 @@ class Timeline(User):
 		self.extract_tweets(user_timeline)
 		self.update_history(self.history_file)
 
-
 class Tweets_by(User):
 	'''Visualize Tweets by any user'''
 	def __init__(self, user_id, credentials_file):
